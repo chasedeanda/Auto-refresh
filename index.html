@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Craigslist Auto Refresh</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- Bootstrap Theme -->
+	<link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.1/lumen/bootstrap.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+			<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.js"></script>
+	<![endif]-->
+	<style>
+	html{
+		position:relative;
+		height: 100%;
+	}
+	body{
+		height: 100%;
+	}
+	.height100{
+		height: 100%;
+	}
+	.padding15{
+		padding: 15px;
+	}
+	.left15{
+		margin-left:15px;
+	}
+	.left5{
+		margin-left:5px;
+	}
+	.right5{
+		margin-right: 5px;
+	}
+	.grey-bg{
+		background: #E3E3E3;
+		border-radius: 0px 0px 5px 5px;
+		min-height: 30px;
+	}
+	.stealth{
+		display:none;
+	}
+	.pointer{
+		cursor: pointer;
+	}
+	.container{
+		border-top: 4px solid #158cba;
+	}
+	.paddingsmall{
+		padding: 3px 15px;
+	}
+	.btn.smallbtn{
+		padding: 2px 5px 0px;
+	}
+	#RefreshDing{
+		display:none;
+	}
+	</style>
+</head>
+<body>
+	<div class="container grey-bg">
+		<div class="row padding15 pop-out">
+			<form id="submitTime">
+				<span class="glyphicon glyphicon-time"></span>
+				<label for="refreshRate">Set </label>
+				<input type="text" id="refreshUrl" style="width:350px" placeholder="Url to refresh (Include http:// or https://)" required/>
+				<label for="url" > to refresh every </label>
+				<input type="text" id="refreshRate" style="width:50px" placeholder="Min." required/>
+				<label for="refreshRate"> minutes.</label>
+				<!-- <div id="submit" class="btn btn-primary border-primary left15">Submit</div> -->
+				<button id="refreshNow" class="btn btn-success border-primary left15" type="submit"><span class="glyphicon glyphicon-refresh" style="margin-right:10px"></span>Start Timer</button>
+				<span class="lead remainingTime" style="display:none;font-size:18px;">Time until next refresh: <span class="remaining right5"></span><span class="timeLabel"></span></span>
+				<div class="btn btn-info pull-right smallbtn closeOptions">
+					<span class="glyphicon glyphicon-chevron-up"></span>
+					<span class="sub-text left10">Hide</span>
+				</div>
+			</form>
+		</div>
+		<div class="row paddingsmall pop-down" style="display:none;">
+			<span class="lead remainingTime" style="display:none;font-size:12px;">Time until next refresh: <span class="remaining right5"></span><span class="timeLabel"></span></span>
+			<div class="btn btn-primary pull-right pop-down smallbtn">
+				<span class="glyphicon glyphicon-chevron-down"></span>
+				<span class="left5">Show</span>
+			</div>
+		</div>
+	</div>
+
+	<audio controls id="RefreshDing">
+	  <source src="RefreshDing.ogg" type="audio/ogg">
+	  <source src="RefreshDing.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+	</audio>
+	
+	<div class="iframe_container height100">
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>
